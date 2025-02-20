@@ -6,4 +6,4 @@ COPY package.json yarn.lock ./
 RUN yarn install
 COPY . .
 EXPOSE 9000
-CMD ["./start.sh"]
+CMD ["sh", "./start.sh"]

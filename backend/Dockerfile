@@ -2,6 +2,9 @@ FROM node:20
 
 WORKDIR /app
 
+# Enable Corepack so that Yarn can be used as specified in package.json
+RUN corepack enable
+
 # Copy dependency files and install dependencies
 COPY package.json yarn.lock ./
 RUN yarn install

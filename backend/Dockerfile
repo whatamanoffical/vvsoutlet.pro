@@ -4,8 +4,6 @@ WORKDIR /app
 
 # Enable Corepack so that Yarn can be used
 RUN corepack enable
-
-# Force Yarn to use node_modules instead of Plug'n'Play
 ENV YARN_NODE_LINKER=node-modules
 
 # Copy dependency files and install dependencies
@@ -15,9 +13,8 @@ RUN yarn install
 # Copy the rest of your code
 COPY . .
 
-# Run migrations and build admin assets
-RUN yarn medusa db:migrate
-RUN yarn medusa build
+# Expose the port (if needed)
+EXPOSE 9000
 
-# Start the Medusa server in production mode
+# Start command will be managed by Railway (or use CMD to run a startup script)
 CMD ["yarn", "medusa", "start"]

@@ -5,4 +5,4 @@ yarn medusa db:migrate
 echo "Building admin assets..."
 yarn medusa build
 echo "Starting Medusa server..."
-yarn medusa start
+yarn dev

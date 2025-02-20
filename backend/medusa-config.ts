@@ -6,6 +6,15 @@ import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
 module.exports = defineConfig({
+  admin: {
+    vite: (defaultConfig) => ({
+      ...defaultConfig,
+      server: {
+        ...defaultConfig.server,
+        allowedHosts: ["vvsoutletpro-production.up.railway.app"],
+      },
+    }),
+  },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {

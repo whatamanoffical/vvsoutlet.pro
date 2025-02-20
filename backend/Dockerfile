@@ -1,10 +1,10 @@
-FROM node:16
+FROM node:20
 
 WORKDIR /app
 
-# Copy dependency files and install dependencies with engine check bypassed
+# Copy dependency files and install dependencies
 COPY package.json yarn.lock ./
-RUN yarn install --ignore-engines
+RUN yarn install
 
 # Copy the rest of your code
 COPY . .

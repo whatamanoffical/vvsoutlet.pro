@@ -2,14 +2,14 @@ FROM node:16
 
 WORKDIR /app
 
-# Install dependencies
+# Copy dependency files and install dependencies with engine check bypassed
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN yarn install --ignore-engines
 
 # Copy the rest of your code
 COPY . .
 
-# Run migrations (if needed) and build the admin assets
+# Run migrations and build admin assets
 RUN yarn medusa db:migrate
 RUN yarn medusa build
 

@@ -7,9 +7,12 @@ loadEnv(process.env.NODE_ENV!, process.cwd());
 
 module.exports = defineConfig({
   admin: {
-    vite: (config) => {
-      config.server.allowedHosts = ["vvsoutletpro-production.up.railway.app"];
-      return config;
+    vite: () => {
+      return {
+        server: {
+          allowedHosts: [".vvsoutletpro-production.up.railway.app"], // replace ".medusa-server-testing.com" with ".yourdomain.com"
+        },
+      };
     },
   },
   projectConfig: {
